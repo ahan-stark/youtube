@@ -2,7 +2,11 @@ import { Provider } from "react-redux";
 import Body from "./components/Body";
 import Head from "./components/Head";
 import appStore from "./store/appStore";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 
@@ -26,8 +30,8 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <div>
-        <Head />
-        <RouterProvider router={appRouter} />
+          <Head />
+          <RouterProvider router={appRouter} />
       </div>
     </Provider>
   );
