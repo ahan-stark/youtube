@@ -9,9 +9,7 @@ const useGetVideo = () => {
   const getFetchData = async () => {
     const data = await fetch(y_url_popular);
     const json = await data.json();
-    setFetchData(json);
-    console.log(json);
-    
+    setFetchData(json);    
   };
   return fetchData;
 };

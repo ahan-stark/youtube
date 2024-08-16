@@ -5,8 +5,10 @@ import userLogo from "../utils/user.png";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleIsMenu } from "../store/appSlice";
 import { y_auto_complete } from "../utils/api_keys";
+import { Link, useNavigate } from "react-router-dom";
 
 const Head = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showSearchResult, setShowSearchResult] = useState(false);
@@ -18,6 +20,9 @@ const Head = () => {
   const dispatch = useDispatch();
   const toggleMenu = () => {
     dispatch(toggleIsMenu());
+  };
+  const navigetToHome = () => {
+    navigate("/");
   };
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,7 +42,13 @@ const Head = () => {
           className="h-5 cursor-pointer"
           onClick={toggleMenu}
         />
+        <div className="cursor-pointer"
+          onClick={() => {
+            navigetToHome();
+          }}
+        >
           <img src={yLogo} alt="☹️" className="h-7 -mt-2 mx-4" />
+        </div>
       </div>
       <div className="col-span-10 px-10">
         <div>

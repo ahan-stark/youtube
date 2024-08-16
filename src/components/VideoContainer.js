@@ -13,13 +13,11 @@ const VideoContainer = () => {
       </div>
     );
   const { items } = data;
-  console.log(items);
-
   return (
     <div className="flex flex-wrap">
-      {items.map((item) => {
+      {items.map((item, index) => {
         return (
-          <Link to = {"/watch?v=" + item.id}>
+          <Link to = {"/watch?v=" + item.id} key={index}>
             <VideoCard info={item} />
           </Link>
         );
