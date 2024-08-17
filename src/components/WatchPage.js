@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../store/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
+  const showSideBar = useSelector((store) => store.app.isMenuOpen);
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   useEffect(() => {
@@ -31,9 +32,11 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="">
-          <LiveChat />
-        </div>
+        {!showSideBar && (
+          <div className="">
+            <LiveChat />
+          </div>
+        )}
       </div>
       <CommentsContainer />
     </div>

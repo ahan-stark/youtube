@@ -8,7 +8,7 @@ const VideoContainer = () => {
   const data = useGetVideo();
   if (data == null)
     return (
-      <div className="w-[100%]">
+      <div className="">
         <Shimmer />
       </div>
     );

@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 
 const SideBar = () => {
   const checkToggle = useSelector((store) => store.app.isMenuOpen);
-  if (!checkToggle) return null;
+  if (!checkToggle) return;
   return (
-    <div className="w-48 shadow-lg">
+    <div className="w-52 shadow-lg">
       <h1 className="font-bold">Subscriptions</h1>
       <ul>
         <li>Movies</li>
