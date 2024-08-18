@@ -14,10 +14,10 @@ const MainContainer = () => {
     }
   }, []);
   return (
-    <div className="">
+    <div className="ml-8">
       <ButtonList />
       <VideoContainer />
-    </div>
+      </div>
   );
 };
 

@@ -8,7 +8,7 @@ const VideoCard = (props) => {
       <img className="rounded-lg" src={thumbnails.medium.url} alt="☹️" />
       <ul>
         <li className="font-bold" >{title}</li>
-        <li>{channelTitle}</li>
+        <li className="text-red-500 font-semibold">{channelTitle}</li>
         <li>{statistics?.viewCount}</li>
       </ul>
     </div>

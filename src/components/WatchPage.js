@@ -33,7 +33,7 @@ const WatchPage = () => {
           ></iframe>
         </div>
         {!showSideBar && (
-          <div className="">
+          <div className="border-[5px] border-red-400 h-[30em] w-[18.8em] ml-2 rounded-lg">
             <LiveChat />
           </div>
         )}

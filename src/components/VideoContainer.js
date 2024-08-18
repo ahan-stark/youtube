@@ -8,7 +8,7 @@ const VideoContainer = () => {
   const data = useGetVideo();
   if (data == null)
     return (
-      <div className="">
+      <div className="w-[76em]">
         <Shimmer />
       </div>
     );
@@ -17,7 +17,7 @@ const VideoContainer = () => {
     <div className="flex flex-wrap">
       {items.map((item, index) => {
         return (
-          <Link to = {"/watch?v=" + item.id} key={index}>
+          <Link to={"/watch?v=" + item.id} key={index} className="w-[25%]">
             <VideoCard info={item} />
           </Link>
         );

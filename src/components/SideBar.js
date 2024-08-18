@@ -5,7 +5,7 @@ const SideBar = () => {
   const checkToggle = useSelector((store) => store.app.isMenuOpen);
   if (!checkToggle) return;
   return (
-    <div className="w-52 shadow-lg">
+    <div className="w-48 shadow-lg pl-6 ">
       <h1 className="font-bold">Subscriptions</h1>
       <ul>
         <li>Movies</li>

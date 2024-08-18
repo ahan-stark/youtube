@@ -18,8 +18,8 @@ const LiveChat = () => {
     };
   }, []);
   return (
-    <div>
-      <div className="w-[19em] h-[480px] p-2 border border-black bg-red-200 overflow-y-scroll">
+    <div className="">
+      <div className="p-2 border h-[26em]  bg-yellow-200 overflow-y-scroll rounded-lg">
         <div className="font-bold"> Live Chat</div>
         <div>
           {chatMessage.map((chat, index) => {
@@ -30,14 +30,14 @@ const LiveChat = () => {
         </div>
       </div>
       <form
-        className="w-[98%] p-2= ml-2 border-red-400 border-[3px] "
+        className="w-[100%] p-2 rounded-lg mt-1"
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(addMessage({name : 'ahan', messsage : liveMsg}))
         }}
       >
         <input
-          className="w-[75%] pl-2"
+          className="w-[75%] pl-2 h-[2em] "
           placeholder="message!"
           type="text"
           value={liveMsg}
@@ -45,7 +45,7 @@ const LiveChat = () => {
             setLiveMsg(e.target.value);
           }}
         />
-        <button className="ml-2 border-[2px] rounded-lg bg-red-200 font-bold text-amber-900 w-[3.5em] ">
+        <button className="ml-2 h-[2.2em] border-[2px]  rounded-lg bg-red-500 text-white w-[3.5em]">
           send
         </button>
       </form>

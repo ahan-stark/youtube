@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import yLogo from "../utils/youtube.png";
 import hamBurger from "../utils/hamburger.png";
 import userLogo from "../utils/user.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleIsMenu } from "../store/appSlice";
 import { y_auto_complete } from "../utils/api_keys";
 import { Link, useNavigate } from "react-router-dom";
@@ -24,6 +24,9 @@ const Head = () => {
   const navigetToHome = () => {
     navigate("/");
   };
+  const searchThis = () => {
+    if (searchQuery.length !== 0) navigate("/search?value=" + searchQuery);
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       getSearchSuggestions();
@@ -42,7 +45,8 @@ const Head = () => {
           className="h-5 cursor-pointer"
           onClick={toggleMenu}
         />
-        <div className="cursor-pointer"
+        <div
+          className="cursor-pointer"
           onClick={() => {
             navigetToHome();
           }}
@@ -64,21 +68,35 @@ const Head = () => {
               setShowSearchResult(true);
             }}
             onBlur={() => {
-              setShowSearchResult(false);
+              setTimeout(() => {
+                setShowSearchResult(false);
+              }, 500);
             }}
           />
-          <button className="p-2 border border-red-600 rounded-full">
+          <button
+            className="p-2 ml-2 h-[2.6em] border border-red-600 rounded-xl bg-red-500 text-white"
+            onClick={() => {
+              searchThis();
+            }}
+          >
             Search
           </button>
         </div>
         {showSearchResult && (
           <div className="fixed bg-white py-2 px-5 w-[30rem] shadow-lg rounded-lg">
             <ul>
-              {searchResult.map((res) => {
+              {searchResult.map((res, index) => {
                 return (
-                  <li className="py-2 shadow-sm hover:bg-gray-100 cursor-pointer">
-                    {res}
-                  </li>
+                  <Link to={"/search?value=" + res} key={index}>
+                    <li
+                      className="py-2 shadow-sm hover:bg-gray-100 cursor-pointer"
+                      onClick={() => {
+                        setSearchQuery(res);
+                      }}
+                    >
+                      {res}
+                    </li>
+                  </Link>
                 );
               })}
             </ul>
